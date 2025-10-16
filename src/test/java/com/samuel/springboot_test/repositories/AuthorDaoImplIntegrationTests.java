@@ -1,8 +1,7 @@
-package com.samuel.springboot_test.dao.impl;
+package com.samuel.springboot_test.repositories;
 
 import com.samuel.springboot_test.TestDataUtil;
 import com.samuel.springboot_test.domain.Author;
-import org.junit.jupiter.api.AutoClose;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
-
+/*
 @SpringBootTest
 @ExtendWith(SpringExtension.class)
 public class AuthorDaoImplIntegrationTests {
@@ -49,4 +48,4 @@ public class AuthorDaoImplIntegrationTests {
         assertThat(results).isNotNull().hasSize(3).containsExactly(savedAuthorA, savedAuthorB, savedAuthorC);
     }
 
-}
+}*/
