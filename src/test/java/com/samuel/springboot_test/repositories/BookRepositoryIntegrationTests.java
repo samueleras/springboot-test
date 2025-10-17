@@ -41,11 +41,22 @@ public class BookRepositoryIntegrationTests {
         Book bookA = TestDataUtil.createTestBookA(author);
         Book bookB = TestDataUtil.createTestBookB(author);
         Book bookC = TestDataUtil.createTestBookC(author);
-
         Book savedBookA = underTest.save(bookA);
         Book savedBookB = underTest.save(bookB);
         Book savedBookC = underTest.save(bookC);
         List<Book> results = (List<Book>) underTest.findAll();
         assertThat(results).isNotNull().hasSize(3).containsExactly(savedBookA, savedBookB, savedBookC);
+    }
+
+    @Test
+    public void testThatBookCanBeUpdated() {
+        Author author = TestDataUtil.createTestAuthorA();
+        Book book = TestDataUtil.createTestBookA(author);
+        Book savedBook = underTest.save(book);
+        savedBook.setTitle("UPDATED");
+        underTest.save(savedBook);
+        Optional<Book> result = underTest.findById(savedBook.getIsbn());
+        assertThat(result).isPresent();
+        assertThat(result.get()).isEqualTo(savedBook);
     }
 }
