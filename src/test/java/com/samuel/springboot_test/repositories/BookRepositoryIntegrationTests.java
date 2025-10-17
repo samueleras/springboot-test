@@ -59,4 +59,15 @@ public class BookRepositoryIntegrationTests {
         assertThat(result).isPresent();
         assertThat(result.get()).isEqualTo(savedBook);
     }
+
+    @Test
+    public void testThatBookCanBeDeleted() {
+        Author author = TestDataUtil.createTestAuthorA();
+        Book book = TestDataUtil.createTestBookA(author);
+        Book savedBook = underTest.save(book);
+        underTest.delete(savedBook);
+        Optional<Book> result = underTest.findById(savedBook.getIsbn());
+        assertThat(result).isEmpty();
+    }
 }
+
