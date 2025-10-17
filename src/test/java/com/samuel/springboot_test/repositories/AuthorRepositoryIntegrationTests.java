@@ -27,9 +27,7 @@ public class AuthorRepositoryIntegrationTests {
 
     @Test
     public void testThatAuthorCanBeCreatedAndRecalled() {
-
         Author author = TestDataUtil.createTestAuthorA();
-
         Author savedAuthor = underTest.save(author);
         Optional<Author> result = underTest.findById(savedAuthor.getId());
         assertThat(result).isPresent();
@@ -41,7 +39,6 @@ public class AuthorRepositoryIntegrationTests {
         Author authorA = TestDataUtil.createTestAuthorA();
         Author authorB = TestDataUtil.createTestAuthorB();
         Author authorC = TestDataUtil.createTestAuthorC();
-
         Author savedAuthorA = underTest.save(authorA);
         Author savedAuthorB = underTest.save(authorB);
         Author savedAuthorC = underTest.save(authorC);
@@ -58,6 +55,15 @@ public class AuthorRepositoryIntegrationTests {
         Optional<Author> result = underTest.findById(savedAuthor.getId());
         assertThat(result).isPresent();
         assertThat(result.get()).isEqualTo(savedAuthor);
+    }
+
+    @Test
+    public void testThatAuthorCanBeDeleted() {
+        Author author = TestDataUtil.createTestAuthorA();
+        Author savedAuthor = underTest.save(author);
+        underTest.delete(savedAuthor);
+        Optional<Author> result = underTest.findById(savedAuthor.getId());
+        assertThat(result).isEmpty();
     }
 
 }
