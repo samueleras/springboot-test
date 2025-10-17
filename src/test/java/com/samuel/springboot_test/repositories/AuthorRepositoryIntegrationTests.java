@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -34,18 +36,17 @@ public class AuthorRepositoryIntegrationTests {
         assertThat(result.get()).isEqualTo(savedAuthor);
     }
 
-    /*
     @Test
     public void testThatMultipleAuthorsCanBeCreatedAndRecalled() {
         Author authorA = TestDataUtil.createTestAuthorA();
         Author authorB = TestDataUtil.createTestAuthorB();
         Author authorC = TestDataUtil.createTestAuthorC();
 
-        Author savedAuthorA = underTest.create(authorA);
-        Author savedAuthorB = underTest.create(authorB);
-        Author savedAuthorC = underTest.create(authorC);
-        List<Author> results = underTest.findMany();
+        Author savedAuthorA = underTest.save(authorA);
+        Author savedAuthorB = underTest.save(authorB);
+        Author savedAuthorC = underTest.save(authorC);
+        List<Author> results = (List<Author>) underTest.findAll();
         assertThat(results).isNotNull().hasSize(3).containsExactly(savedAuthorA, savedAuthorB, savedAuthorC);
-    }*/
+    }
 
 }
