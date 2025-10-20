@@ -4,6 +4,7 @@ import com.samuel.springboot_test.domain.BookEntity;
 import com.samuel.springboot_test.domain.dto.BookDto;
 import com.samuel.springboot_test.mappers.Mapper;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeMap;
 import org.springframework.stereotype.Component;
 
 import java.awt.print.Book;
