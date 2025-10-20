@@ -1,6 +1,6 @@
 package com.samuel.springboot_test;
 
-, import com.samuel.springboot_test.domain.AuthorEntity;
+import com.samuel.springboot_test.domain.AuthorEntity;
 import com.samuel.springboot_test.domain.BookEntity;
 
 public final class TestDataUtil {
