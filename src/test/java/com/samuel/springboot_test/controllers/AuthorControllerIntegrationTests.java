@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.samuel.springboot_test.TestDataUtil;
 import com.samuel.springboot_test.domain.AuthorEntity;
+import com.samuel.springboot_test.domain.dto.AuthorDto;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +35,7 @@ public class AuthorControllerIntegrationTests {
 
     @Test
     public void testThatCreateAuthorSuccessfullyReturnsHttp201Created() throws Exception {
-        AuthorEntity testAuthorA = TestDataUtil.createTestAuthorA();
+        AuthorDto testAuthorA = TestDataUtil.createTestAuthorDtoA();
         testAuthorA.setId(null);
         String authorJson = objectMapper.writeValueAsString(testAuthorA);
         mockMvc.perform(
@@ -46,7 +47,7 @@ public class AuthorControllerIntegrationTests {
 
     @Test
     public void testThatCreateAuthorSuccessfullyReturnsSavedAuthor() throws Exception {
-        AuthorEntity testAuthorA = TestDataUtil.createTestAuthorA();
+        AuthorDto testAuthorA = TestDataUtil.createTestAuthorDtoA();
         testAuthorA.setId(null);
         String authorJson = objectMapper.writeValueAsString(testAuthorA);
         mockMvc.perform(
