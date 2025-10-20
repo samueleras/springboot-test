@@ -1,54 +1,54 @@
 package com.samuel.springboot_test;
 
-import com.samuel.springboot_test.domain.Author;
-import com.samuel.springboot_test.domain.Book;
+, import com.samuel.springboot_test.domain.AuthorEntity;
+import com.samuel.springboot_test.domain.BookEntity;
 
 public final class TestDataUtil {
 
     private TestDataUtil(){}
 
-    public static Author createTestAuthorA() {
-        return Author.builder()
+    public static AuthorEntity createTestAuthorA() {
+        return AuthorEntity.builder()
                 .name("Samuel")
                 .age(25)
                 .build();
     }
 
-    public static Author createTestAuthorB() {
-        return Author.builder()
+    public static AuthorEntity createTestAuthorB() {
+        return AuthorEntity.builder()
                 .name("Gerta")
                 .age(26)
                 .build();
     }
 
-    public static Author createTestAuthorC() {
-        return Author.builder()
+    public static AuthorEntity createTestAuthorC() {
+        return AuthorEntity.builder()
                 .name("Thomas")
                 .age(18)
                 .build();
     }
 
-    public static Book createTestBookA(Author author) {
-        return Book.builder()
+    public static BookEntity createTestBookA(AuthorEntity authorEntity) {
+        return BookEntity.builder()
                 .isbn("AAAAAAAA")
                 .title("Harry Potter 1")
-                .author(author)
+                .authorEntity(authorEntity)
                 .build();
     }
 
-    public static Book createTestBookB(Author author) {
-        return Book.builder()
+    public static BookEntity createTestBookB(AuthorEntity authorEntity) {
+        return BookEntity.builder()
                 .isbn("BBBBBBBB")
                 .title("Harry Potter 2")
-                .author(author)
+                .authorEntity(authorEntity)
                 .build();
     }
 
-    public static Book createTestBookC(Author author) {
-        return Book.builder()
+    public static BookEntity createTestBookC(AuthorEntity authorEntity) {
+        return BookEntity.builder()
                 .isbn("CCCCCCC")
                 .title("Harry Potter 3")
-                .author(author)
+                .authorEntity(authorEntity)
                 .build();
     }
 }
